@@ -48,7 +48,7 @@ while True:
             sense.show_message(text_string=temperatureMessage, text_colour=[255,0,0] if isTemperatureTooLow else [0,255,0])
             sense.show_message(text_string=humidityMessage, text_colour=[255, 0, 0] if isHumidityTooHigh else [0,255,0])
             
-            if (isTemperatureTooLow or isHumidityTooHigh): # and lastEmailSendDate != today:
+            if (isTemperatureTooLow or isHumidityTooHigh) and lastEmailSendDate != today:
                sendEmailTemperatureWarning(temperature = temperature, desired_temperature=desired_temperature, humidity=humidity, desired_humidity=desired_humidity)
                lastEmailSendDate = today
         except BaseException as err:
